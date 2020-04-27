@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ElectronNET.API;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace RedisElectron
 {
@@ -13,14 +9,14 @@ namespace RedisElectron
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            BuildWebHost(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+        public static IWebHostBuilder BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                .UseElectron(args)
+                .UseStartup<Startup>();
+        }
     }
 }
