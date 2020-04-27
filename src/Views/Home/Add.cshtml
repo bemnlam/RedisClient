@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Add a key</h1>
+</div>
+
+<form action="/add" method="POST">
+    <div>
+    <label for="key">key</label>
+    <input name="key" id="key" type="text">
+    </div>
+
+    <div>
+    <label for="value">value</label>
+    <input name="value" id="value" type="text">
+    </div>
+
+    <button type="submit">Add</button>
+</form>

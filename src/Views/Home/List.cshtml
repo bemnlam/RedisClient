@@ -1,0 +1,19 @@
+﻿@using System.Collections.Generic
+@model IDictionary<string, string>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<pre>@Newtonsoft.Json.JsonConvert.SerializeObject(Model, Formatting.Indented)</pre>
+
+@foreach(var kvp in Model)
+{
+     <details>
+        <summary><pre>@kvp.Key</pre></summary>
+        <code>@kvp.Value</code>
+    </details> 
+}
